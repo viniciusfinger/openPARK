@@ -1,0 +1,31 @@
+<head th:fragment="head">
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;600&display=swap" rel="stylesheet">
+
+    <style>
+        .logo-container {
+            background-color: #F4D03A;
+            color: #FFF;
+        }
+
+        .logo {
+            font-family: 'Kanit', sans-serif;
+            font-size: 45px;
+            font-weight: 300;
+        }
+
+        .logo-bold {
+            font-weight: 600;
+        }
+
+    </style>
+    <title>Home</title>
+</head>
+<div th:fragment="logo" class="logo-container mb-3 p-3 d-flex justify-content-between">
+    <div>
+        <span class="logo">Open</span><span class="logo logo-bold">Park</span>
+    </div>
+    <button type="button" class="btn btn-light">Login</button>
+</div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:replace="~{base :: head}"></head>
+    <body>
+    	<div class="logo-container mb-3 p-3 d-flex justify-content-between">
+    		<div>
+        		<span class="logo">Open</span><span class="logo logo-bold">Park</span>
+    		</div>
+		</div>
+        <div class="container">
+            <div class="card  mb-3">
+                <div class="card-header alert-success">Status do estacionamento</div>
+                <div class="card-body">
+                    <div class="col-12 col-sm-8 mb-3">
+                        <div class="row">
+                            <div class="col-md-12">Quantidade de carros no estacionamento atualmente: <span>12</span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">Vagas restantes: <span>30</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-header alert-success">Veiculos no estacionamento atualmente</div>
+                <div class="card-body">
+                    <div class="col-12 col-sm-8 mb-3">
+                    	<div class="row mb-1">
+                            <div class="col-md-6 font-weight-bold">Modelo:</div>
+                            <div class="col-md-2 font-weight-bold">Placa: </div>
+                            <div class="col-md-4 font-weight-bold">Hora de entrada:</div>
+                        </div>
+                        <div th:each="veiculo : ${veiculos}" class="row mb-2">
+                            <div class="col-md-6"><span th:text="${veiculo.marca} + ' ' + ${veiculo.modelo} + ' ' + ${veiculo.cor}">Corsa Bordo</span></div>
+                            <div class="col-md-2"><span>IHF-2551</span></div>
+                            <div class="col-md-4"><span>12:54</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+</html>

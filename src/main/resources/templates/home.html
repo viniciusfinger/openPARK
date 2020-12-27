@@ -2,6 +2,13 @@
 <html lang="pt-br">
 <head th:replace="~{base :: head}"></head>
     <body>
-    <div th:replace="~{base :: logo}"></div>
+        <div class="logo-container mb-3 p-3 d-flex justify-content-between">
+    		<div>
+        		<span class="logo">Open</span><span class="logo logo-bold">Park</span>
+    		</div>
+    		<div>
+    			<a href="/painel"><button class="btn btn-light mt-3">Painel</button></a>	
+    		</div>
+		</div>
     </body>
 </html>

@@ -1,7 +1,5 @@
 package OpenPark.model;
 
-import java.time.LocalDate;
-
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -25,7 +23,6 @@ public class Veiculo {
 
     private String placa;
     
-    private LocalDate dataEntrada;
 
 	public Long getId() {
 		return id;
@@ -57,14 +54,6 @@ public class Veiculo {
 
 	public void setPlaca(String placa) {
 		this.placa = placa;
-	}
-
-	public LocalDate getDataEntrada() {
-		return dataEntrada;
-	}
-
-	public void setDataEntrada(LocalDate dataEntrada) {
-		this.dataEntrada = dataEntrada;
 	}
 
 	public String getModelo() {

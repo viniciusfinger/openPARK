@@ -31,10 +31,10 @@
                             <div class="col-md-2 font-weight-bold">Placa: </div>
                             <div class="col-md-4 font-weight-bold">Hora de entrada:</div>
                         </div>
-                        <div th:each="veiculo : ${veiculos}" class="row mb-2">
-                            <div class="col-md-6"><span th:text="${veiculo.marca} + ' ' + ${veiculo.modelo} + ' ' + ${veiculo.cor}">Corsa Bordo</span></div>
-                            <div class="col-md-2"><span>IHF-2551</span></div>
-                            <div class="col-md-4"><span>12:54</span></div>
+                        <div th:each="entrada : ${entradas}" class="row mb-2">
+                            <div class="col-md-6"><span th:text="${entrada.veiculo.marca} + ' ' + ${entrada.veiculo.modelo} + ' ' + ${entrada.veiculo.cor}">Corsa Bordo</span></div>
+                            <div class="col-md-2"><span th:text="${entrada.veiculo.placa}">IHF-2551</span></div>
+                            <div class="col-md-4"><span th:text="${#dates.format(entrada.horaEntrada, 'dd/MM/yyyy HH:mm')}">12:54</span></div>
                         </div>
                     </div>
                 </div>

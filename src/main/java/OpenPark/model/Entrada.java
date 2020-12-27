@@ -20,6 +20,8 @@ public class Entrada {
     private Veiculo veiculo;
     
     private Date horaEntrada;
+    
+    private Date horaSaida;
 
     public Entrada() {
     	this.horaEntrada = new Date();
@@ -44,6 +46,20 @@ public class Entrada {
 	public Date getHoraEntrada() {
 		return horaEntrada;
 	}
-    
-    
+
+	public Date getHoraSaida() {
+		return horaSaida;
+	}
+
+	public void setHoraSaida(Date horaSaida) {
+		this.horaSaida = horaSaida;
+	}
+
+	public void setHoraEntrada(Date horaEntrada) {
+		this.horaEntrada = horaEntrada;
+	}
+	
+	public void finaliza() {
+		this.horaSaida = new Date();
+	}
 }

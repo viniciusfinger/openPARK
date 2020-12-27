@@ -6,6 +6,9 @@
     		<div>
         		<span class="logo">Open</span><span class="logo logo-bold">Park</span>
     		</div>
+    		<div>
+    			<a href="/"><button class="btn btn-light mt-3">Home</button></a>	
+    		</div>
 		</div>
         <div class="container">
             <div class="card  mb-3">
@@ -13,7 +16,7 @@
                 <div class="card-body">
                     <div class="col-12 col-sm-8 mb-3">
                         <div class="row">
-                            <div class="col-md-12">Quantidade de carros no estacionamento atualmente: <span>12</span></div>
+                            <div class="col-md-12">Quantidade de carros no estacionamento atualmente: <span th:text="${quantidadeVeiculos}">12</span></div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">Vagas restantes: <span>30</span></div>

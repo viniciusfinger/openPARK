@@ -16,34 +16,43 @@
                 <div class="card-body">
                     <div class="col-12 col-sm-8 mb-3">
                         <div class="row">
-                            <div class="col-md-12">Quantidade de carros no estacionamento atualmente: <span th:text="${quantidadeVeiculos}">12</span></div>
+                            <div class="col-md-12">Quantidade de veiculos no estacionamento atualmente: <span th:text="${quantidadeVeiculos}">12</span></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">Vagas restantes: <span>30</span></div>
+                            <div class="col-md-12">Vagas restantes: <span th:text="${quantidadeVeiculosDisponivel}">30</span></div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="card mb-3">
-                <div class="card-header alert-success">Veiculos no estacionamento atualmente</div>
+                <div class="card-header alert-success col-12">
+                	<div class="row p-3 d-flex col-12">
+                		<div class="col-11">
+                			<span>Veiculos no estacionamento atualmente</span>
+                		</div>
+                		<div class="col-1">
+                		<a href="/entrada"><button type="button" class="btn btn-success">Entrada</button></a>
+                		</div>	
+                	</div>
+                </div>
                 <div class="card-body">
-                    <div class="col-12 col-sm-8 mb-3">
+                    <div class="col-12 mb-3">
                     	<div class="row mb-1">
-                            <div class="col-md-6 font-weight-bold">Modelo:</div>
-                            <div class="col-md-2 font-weight-bold">Placa: </div>
-                            <div class="col-md-4 font-weight-bold">Hora de entrada:</div>
+                            <div class="col-3 font-weight-bold">Modelo:</div>
+                            <div class="col-3 font-weight-bold">Placa: </div>
+                            <div class="col-3 font-weight-bold">Hora de entrada:</div>
+                            <div class="col-3 font-weight-bold">Saida:</div>
                         </div>
-                        <div th:each="entrada : ${entradas}" class="row mb-2">
-                            <div class="col-md-6"><span th:text="${entrada.veiculo.marca} + ' ' + ${entrada.veiculo.modelo} + ' ' + ${entrada.veiculo.cor}">Corsa Bordo</span></div>
-                            <div class="col-md-2"><span th:text="${entrada.veiculo.placa}">IHF-2551</span></div>
-                            <div class="col-md-4"><span th:text="${#dates.format(entrada.horaEntrada, 'dd/MM/yyyy HH:mm')}">12:54</span></div>
+                        <div th:each="entrada : ${entradas}" class="row mb-3">
+                            <div class="col-3"><span th:text="${entrada.veiculo.marca.marca} + ' ' + ${entrada.veiculo.modelo} + ' ' + ${entrada.veiculo.cor.cor}">Corsa Bordo</span></div>
+                            <div class="col-3"><span th:text="${entrada.veiculo.placa}">IHF-2551</span></div>
+                            <div class="col-3"><span th:text="${#dates.format(entrada.horaEntrada, 'dd/MM/yyyy HH:mm')}">12:54</span></div>
+                            <div class="col-3"> <a th:href="'/entrada/fecha/' + ${entrada.id}" href=""><button type="button" class="btn btn-danger">Saida</button></a></div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </body>
 </html>

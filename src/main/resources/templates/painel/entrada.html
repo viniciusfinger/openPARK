@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:replace="~{base :: head}"></head>
+    <body>
+    	<div class="logo-container mb-3 p-3 d-flex justify-content-between">
+    		<div>
+        		<span class="logo">Open</span><span class="logo logo-bold">Park</span>
+    		</div>
+    		<div>
+    			<a href="/painel"><button class="btn btn-light mt-3">Painel</button></a>	
+    		</div>
+		</div>
+		<div class="container">
+			<div class="card">
+				<div class="card-body">
+					<form action="">
+						
+						<div class="form-group">
+							<label for="modelo">Modelo do veiculo</label>
+							<input class="form-control" name="modelo" placeholder="Ex: Corsa">
+						</div>
+						<div class="form-group">
+							<label for="modelo">Marca do veiculo</label>
+							<select class="form-control"  name="modelo">
+    							<option th:each="marca : ${marcas}"th:value="${marca.marca}" th:text="${marca.marca}"></option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="modelo">Cor do veiculo</label>
+							<select class="form-control"  name="modelo">
+    							<option th:each="cor : ${cores}"th:value="${cor.cor}" th:text="${cor.cor}"></option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="placa">Placa do veiculo</label>
+							<input class="form-control" name="placa" placeholder="Ex: IHF-2551">
+						</div>
+						 <button class="btn btn-success" type="submit">Ok</button>	
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -18,16 +18,21 @@ public class PainelController {
 
 	@Autowired
 	public EntradaRepository entradaRepository;
+	public Integer quantidadeVagasEstacionamento = 30;
+	
 	
     @GetMapping
     private ModelAndView principal() {
     	
     	List<Entrada> entradas = entradaRepository.findByHoraSaidaIsNull();
+    	
     	Integer quantidadeVeiculos = entradas.size();
+    	Integer quantidadeVeiculosDisponivel = quantidadeVagasEstacionamento - quantidadeVeiculos; 
     	
     	ModelAndView mv = new ModelAndView("painel/principal");
         mv.addObject("entradas", entradas);
         mv.addObject("quantidadeVeiculos", quantidadeVeiculos);
+        mv.addObject("quantidadeVeiculosDisponivel", quantidadeVeiculosDisponivel);
         return mv;
     }
 }

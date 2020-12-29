@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head th:replace="~{base :: head}"></head>
+	
     <body>
     	<div class="logo-container mb-3 p-3 d-flex justify-content-between">
     		<div>
@@ -17,7 +18,7 @@
                    		<div class="form-group">
                        		<label for="modelo">Modelo</label>
                         	<input th:field="*{modelo}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Ex: Corsa"/>
-                        	<small>informe qual o modelo do veiculo.</small>
+                        	<small>Informe qual o modelo do veiculo.</small>
                         <div class="invalid-feedback" th:errors="*{modelo}"></div>
                     	</div>
                     	<div class="form-group">
@@ -38,8 +39,9 @@
                         	<label for="placa">Placa</label>
                         	<input th:field="*{placa}" th:errorclass="is-invalid" class="form-control" type="text"  placeholder="Ex: IHF-2551"/>
                         	<div class="invalid-feedback" th:errors="*{placa}"></div>
+                        	<small>Informe a placa do veiculo com travessao.</small>
                     	</div>
-                    	<button class="btn btn-primary" type="submit">Salvar Veiculo</button>
+                    	<button class="btn btn-primary" type="submit">Salvar</button>
                 	</form>
 				</div>
 			</div>

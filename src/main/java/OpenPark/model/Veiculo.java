@@ -15,12 +15,10 @@ public class Veiculo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    private String marca;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private MarcaVeiculo marca;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private CorVeiculo cor;
+    private String cor;
     
     private String modelo;
 
@@ -33,22 +31,6 @@ public class Veiculo {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public MarcaVeiculo getMarca() {
-		return marca;
-	}
-
-	public void setMarca(MarcaVeiculo marca) {
-		this.marca = marca;
-	}
-
-	public CorVeiculo getCor() {
-		return cor;
-	}
-
-	public void setCor(CorVeiculo cor) {
-		this.cor = cor;
 	}
 
 	public String getPlaca() {
@@ -65,5 +47,21 @@ public class Veiculo {
 
 	public void setModelo(String modelo) {
 		this.modelo = modelo.toUpperCase();
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public String getCor() {
+		return cor;
+	}
+
+	public void setCor(String cor) {
+		this.cor = cor;
 	}  
 }

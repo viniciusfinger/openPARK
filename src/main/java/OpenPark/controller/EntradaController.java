@@ -3,16 +3,21 @@ package OpenPark.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import OpenPark.dto.VeiculoDTO;
 import OpenPark.model.CorVeiculo;
 import OpenPark.model.Entrada;
 import OpenPark.model.MarcaVeiculo;
+import OpenPark.model.Veiculo;
 import OpenPark.repository.CorRepository;
 import OpenPark.repository.EntradaRepository;
 import OpenPark.repository.MarcaRepository;
@@ -41,15 +46,18 @@ public class EntradaController {
 	}
 	
     @GetMapping
-    private ModelAndView entrada() {
+    private ModelAndView entrada(VeiculoDTO veiculoDTO) {
     	ModelAndView mv = new ModelAndView("painel/entrada");
-    	
-    	List<MarcaVeiculo> marcas = marcaRepository.findAll();
-    	mv.addObject("marcas", marcas);
-    	
-    	List<CorVeiculo> cores = corRepository.findAll();
-    	mv.addObject("cores", cores);
-    	
     	return mv;
     }
+    
+    @PostMapping
+    private ModelAndView entradaRegistro(VeiculoDTO veiculoDTO) {
+    	ModelAndView mv = new ModelAndView("painel/entrada");
+    	Veiculo veiculo = veiculoDTO.toVeiculo();
+    	Entrada entrada = new Entrada();
+    	entrada.setVeiculo(veiculo);
+    	entradaRepository.save(entrada);
+    	return mv;
+    }   
 }

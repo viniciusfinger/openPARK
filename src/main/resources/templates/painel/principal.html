@@ -45,7 +45,7 @@
                             <div class="col-3 font-weight-bold">Saida:</div>
                         </div>
                         <div th:each="entrada : ${entradas}" class="row mb-3">
-                            <div class="col-3"><span th:text="${entrada.veiculo.marca.marca} + ' ' + ${entrada.veiculo.modelo} + ' ' + ${entrada.veiculo.cor.cor}">Corsa Bordo</span></div>
+                            <div class="col-3"><span th:text="${entrada.veiculo.marca} + ' ' + ${entrada.veiculo.modelo} + ' ' + ${entrada.veiculo.cor}">Corsa Bordo</span></div>
                             <div class="col-3"><span th:text="${entrada.veiculo.placa}">IHF-2551</span></div>
                             <div class="col-3"><span th:text="${#dates.format(entrada.horaEntrada, 'dd/MM/yyyy HH:mm')}">12:54</span></div>
                             <div class="col-3"> <a th:href="'/entrada/fecha/' + ${entrada.id}" href=""><button type="button" class="btn btn-danger">Saida</button></a></div>

@@ -21,17 +21,19 @@
                         <div class="invalid-feedback" th:errors="*{modelo}"></div>
                     	</div>
                     	<div class="form-group">
-                        	<label for="marca">Marca</label>
-                        	<input th:field="*{marca}"  th:errorclass="is-invalid" class="form-control" type="text" placeholder="Ex: Chevrolet"/>
-                        	<small>Informe a marca do veiculo.</small>
-                        	<div class="invalid-feedback" th:errors="*{marca}"></div>
+                    		<label for="modelo">Marca</label>
+                    		<select th:field="*{marca}"  th:errorclass="is-invalid" class="form-control">
+    							<option th:each="marca : ${marcas}"th:value="${marca.marca}" th:text="${marca.marca}"></option>
+							</select>
+							<div class="invalid-feedback" th:errors="*{marca}"></div>
                     	</div>
                     	<div class="form-group">
-	                        <label for="cor">Cor</label>
-    	                    <input th:field="*{cor}" th:errorclass="is-invalid" class="form-control" type="text"  placeholder="Ex: Vermelho"/>
-        	                <small>Informe a cor do veiculo.</small>
-            	            <div class="invalid-feedback" th:errors="*{cor}"></div>
-                	    </div>
+                    		<label for="modelo">Cor</label>
+                    		<select th:field="*{cor}"  th:errorclass="is-invalid" class="form-control">
+    							<option th:each="cor : ${cores}"th:value="${cor.cor}" th:text="${cor.cor}"></option>
+							</select>
+							<div class="invalid-feedback" th:errors="*{cor}"></div>
+                    	</div>
                    		<div class="form-group">
                         	<label for="placa">Placa</label>
                         	<input th:field="*{placa}" th:errorclass="is-invalid" class="form-control" type="text"  placeholder="Ex: IHF-2551"/>

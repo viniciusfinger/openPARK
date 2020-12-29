@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,12 +50,40 @@ public class EntradaController {
     @GetMapping
     private ModelAndView entrada(VeiculoDTO veiculoDTO) {
     	ModelAndView mv = new ModelAndView("painel/entrada");
+    	
+    	List<MarcaVeiculo> marcas = marcaRepository.findAll();
+    	List<CorVeiculo> cores = corRepository.findAll();
+    	
+    	mv.addObject("cores", cores);
+    	mv.addObject("marcas", marcas);
+    	
+    	return mv;
+    }
+    
+    @GetMapping("/historico")
+    private ModelAndView historico() {
+    	ModelAndView mv = new ModelAndView("painel/historico");
+    	
+    	List<Entrada> historicoEntradas = entradaRepository.findHistoricoUltimoDia();
+    	mv.addObject("historicoEntradas", historicoEntradas);
+    	mv.addObject("quantidadeVeiculosHoje", historicoEntradas.size());
+    	
     	return mv;
     }
     
     @PostMapping
-    private ModelAndView entradaRegistro(VeiculoDTO veiculoDTO) {
+    private ModelAndView entradaRegistro(@Valid VeiculoDTO veiculoDTO, BindingResult result) {
     	ModelAndView mv = new ModelAndView("painel/entrada");
+    	
+    	if (result.hasErrors()) {
+    		List<MarcaVeiculo> marcas = marcaRepository.findAll();
+        	List<CorVeiculo> cores = corRepository.findAll();
+        	
+        	mv.addObject("cores", cores);
+        	mv.addObject("marcas", marcas);
+    		return mv;
+    	}
+    	
     	Veiculo veiculo = veiculoDTO.toVeiculo();
     	Entrada entrada = new Entrada();
     	entrada.setVeiculo(veiculo);

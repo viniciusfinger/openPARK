@@ -13,7 +13,7 @@
     		</div>
     		<div>
     			<a href="/"><button class="btn btn-light mt-3">Home</button></a>
-    			<a href="/entrada/historico"><button class="btn btn-light mt-3">Historico</button></a>
+    			<a href="/painel"><button class="btn btn-light mt-3">Painel</button></a>
     			<a href="/"><button class="btn btn-light mt-3 text-danger">Admin</button></a>	
     		</div>
 		</div>
@@ -23,10 +23,7 @@
                 <div class="card-body">
                     <div class="col-12 col-sm-8 mb-3">
                         <div class="row">
-                            <div class="col-md-12">Quantidade de veiculos no estacionamento atualmente: <span th:text="${quantidadeVeiculos}">12</span></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">Vagas restantes: <span th:text="${quantidadeVeiculosDisponivel}">30</span></div>
+                            <div class="col-md-12">Quantidade de veiculos que estacionaram hoje: <span th:text="${quantidadeVeiculosHoje}">12</span></div>
                         </div>
                     </div>
                 </div>
@@ -34,13 +31,8 @@
 
             <div class="card mb-3">
                 <div class="card-header alert-success col-12">
-                	<div class="row p-3 d-flex col-12">
-                		<div class="col-10 col-lg-11" >
-                			<span>Veiculos no estacionamento atualmente</span>
-                		</div>
-                		<div class="col-1">
-                			<a href="/entrada"><button type="button" class="btn btn-success">Entrada</button></a>
-                		</div>	
+                	<div class="row p-3 d-flex col-12">                		
+                			<span>Veiculos estacionados nas ultimas 24 horas</span>
                 	</div>
                 </div>
                 <div class="card-body">
@@ -48,14 +40,14 @@
                     	<div class="row mb-1">
                             <div class="col-3 font-weight-bold">Modelo:</div>
                             <div class="col-3 font-weight-bold">Placa: </div>
-                            <div class="col-3 font-weight-bold">Hora de entrada:</div>
-                            <div class="col-3 font-weight-bold">Efetuar Saida:</div>
+                            <div class="col-3 font-weight-bold">Hora de Entrada:</div>
+                            <div class="col-3 font-weight-bold">Hora de Saida:</div>
                         </div>
-                        <div th:each="entrada : ${entradas}" class="row mb-3">
+                        <div th:each="entrada : ${historicoEntradas}" class="row mb-3">
                             <div class="col-3"><span th:text="${entrada.veiculo.marca} + ' ' + ${entrada.veiculo.modelo} + ' ' + ${entrada.veiculo.cor}">Corsa Bordo</span></div>
                             <div class="col-3"><span th:text="${entrada.veiculo.placa}">IHF-2551</span></div>
                             <div class="col-3"><span th:text="${#dates.format(entrada.horaEntrada, 'dd/MM/yyyy HH:mm')}">12:54</span></div>
-                            <div class="col-3"> <a th:href="'/entrada/fecha/' + ${entrada.id}" href=""><button type="button" class="btn btn-danger">Saida</button></a></div>
+                            <div class="col-3"><span th:text="${#dates.format(entrada.horaSaida, 'dd/MM/yyyy HH:mm')}">12:54</span></div>
                         </div>
                     </div>
                 </div>

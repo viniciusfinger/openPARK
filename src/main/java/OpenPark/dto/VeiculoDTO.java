@@ -21,7 +21,7 @@ public class VeiculoDTO {
 	public Veiculo toVeiculo() {
 		Veiculo veiculo = new Veiculo();
 		veiculo.setCor(cor);
-		veiculo.setModelo(modelo);
+		veiculo.setModelo(modelo.toUpperCase());
 		veiculo.setMarca(marca);
 		veiculo.setPlaca(placa);
 		

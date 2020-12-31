@@ -3,7 +3,6 @@ package OpenPark.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +25,8 @@ import OpenPark.repository.MarcaRepository;
 
 
 @Controller
-@RequestMapping("/entrada")
-public class EntradaController {
+@RequestMapping("/estacionamento")
+public class EstacionamentoController {
 
 	@Autowired
 	EntradaRepository entradaRepository;
@@ -38,16 +37,16 @@ public class EntradaController {
 	@Autowired
 	MarcaRepository marcaRepository;
 	
-	@GetMapping("/fecha/{idEntrada}")
+	@GetMapping("/saida/{idEntrada}")
 	public String saida(@PathVariable Long idEntrada) {
 		Optional<Entrada> entradaOPT = entradaRepository.findById(idEntrada);
 		Entrada entrada = entradaOPT.get();
 		entrada.finaliza();
 		entradaRepository.save(entrada);
-		return "forward:/painel";
+		return "redirect:/painel";
 	}
 	
-    @GetMapping
+    @GetMapping("/entrada")
     private ModelAndView entrada(VeiculoDTO veiculoDTO) {
     	ModelAndView mv = new ModelAndView("painel/entrada");
     	
@@ -60,18 +59,7 @@ public class EntradaController {
     	return mv;
     }
     
-    @GetMapping("/historico")
-    private ModelAndView historico() {
-    	ModelAndView mv = new ModelAndView("painel/historico");
-    	
-    	List<Entrada> historicoEntradas = entradaRepository.findHistoricoUltimoDia();
-    	mv.addObject("historicoEntradas", historicoEntradas);
-    	mv.addObject("quantidadeVeiculosHoje", historicoEntradas.size());
-    	
-    	return mv;
-    }
-    
-    @PostMapping
+    @PostMapping("/entrada")
     private ModelAndView entradaRegistro(@Valid VeiculoDTO veiculoDTO, BindingResult result) {
     	ModelAndView mv = new ModelAndView("painel/entrada");
     	
@@ -88,6 +76,8 @@ public class EntradaController {
     	Entrada entrada = new Entrada();
     	entrada.setVeiculo(veiculo);
     	entradaRepository.save(entrada);
+    	
+    	mv.setViewName("redirect:/painel");
     	return mv;
-    }   
+    }       
 }

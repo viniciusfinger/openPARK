@@ -22,17 +22,28 @@ public class PainelController {
 	
 	
     @GetMapping
-    private ModelAndView principal() {
+    private ModelAndView resumo() {
     	
     	List<Entrada> entradas = entradaRepository.findByHoraSaidaIsNull();
     	
     	Integer quantidadeVeiculos = entradas.size();
     	Integer quantidadeVeiculosDisponivel = quantidadeVagasEstacionamento - quantidadeVeiculos; 
     	
-    	ModelAndView mv = new ModelAndView("painel/principal");
+    	ModelAndView mv = new ModelAndView("painel/resumo");
         mv.addObject("entradas", entradas);
         mv.addObject("quantidadeVeiculos", quantidadeVeiculos);
         mv.addObject("quantidadeVeiculosDisponivel", quantidadeVeiculosDisponivel);
         return mv;
+    }
+    
+    @GetMapping("/historico")
+    private ModelAndView historico() {
+    	ModelAndView mv = new ModelAndView("painel/historico");
+    	
+    	List<Entrada> historicoEntradas = entradaRepository.findHistoricoUltimoDia();
+    	mv.addObject("historicoEntradas", historicoEntradas);
+    	mv.addObject("quantidadeVeiculosHoje", historicoEntradas.size());
+    	
+    	return mv;
     }
 }

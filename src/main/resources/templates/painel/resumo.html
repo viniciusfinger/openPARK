@@ -9,7 +9,7 @@
     		</div>
     		<div>
     			<a href="/"><button class="btn btn-light mt-3">Home</button></a>
-    			<a href="/entrada/historico"><button class="btn btn-light mt-3">Historico</button></a>
+    			<a href="/painel/historico"><button class="btn btn-light mt-3">Historico</button></a>
     			<a href="/"><button class="btn btn-light mt-3 text-danger">Admin</button></a>	
     		</div>
 		</div>
@@ -35,7 +35,7 @@
                 			<span>Veiculos no estacionamento atualmente</span>
                 		</div>
                 		<div class="col-1">
-                			<a href="/entrada"><button type="button" class="btn btn-success">Entrada</button></a>
+                			<a href="/estacionamento/entrada"><button type="button" class="btn btn-success">Entrada</button></a>
                 		</div>	
                 	</div>
                 </div>
@@ -51,8 +51,8 @@
                             <div class="col-3"><span th:text="${entrada.veiculo.marca} + ' ' + ${entrada.veiculo.modelo} + ' ' + ${entrada.veiculo.cor}">Corsa Bordo</span></div>
                             <div class="col-3"><span th:text="${entrada.veiculo.placa}">IHF-2551</span></div>
                             <div class="col-3"><span th:text="${#dates.format(entrada.horaEntrada, 'dd/MM/yyyy HH:mm')}">12:54</span></div>
-                            <div class="col-3"> <a th:href="'/entrada/fecha/' + ${entrada.id}" href=""><button type="button" class="btn btn-danger">Saida</button></a></div>
-                        </div>
+                            <div class="col-3"> <a th:href="'/estacionamento/saida/' + ${entrada.id}" href=""><button type="button" class="btn btn-danger">Saida</button></a></div>
+                        </div>	
                     </div>
                 </div>
             </div>

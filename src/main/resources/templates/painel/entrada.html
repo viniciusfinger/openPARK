@@ -14,7 +14,7 @@
 		<div class="container">
 			<div class="card">
 				<div class="card-body">
-					<form th:object="${veiculoDTO}" class="card-body" action="/entrada" method="POST">
+					<form th:object="${veiculoDTO}" class="card-body" action="/estacionamento/entrada" method="POST">
                    		<div class="form-group">
                        		<label for="modelo">Modelo</label>
                         	<input th:field="*{modelo}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Ex: Corsa"/>

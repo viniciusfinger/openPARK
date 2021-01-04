@@ -15,6 +15,8 @@ public class CategoriaVeiculo {
 	public String categoria;
 	
 	public Float valorHora;
+	
+	public Float valorBase;
 
 	
 	public Long getId() {
@@ -39,5 +41,13 @@ public class CategoriaVeiculo {
 
 	public void setValorHora(Float valorHora) {
 		this.valorHora = valorHora;
+	}
+
+	public Float getValorBase() {
+		return valorBase;
+	}
+
+	public void setValorBase(Float valorBase) {
+		this.valorBase = valorBase;
 	}	
 }

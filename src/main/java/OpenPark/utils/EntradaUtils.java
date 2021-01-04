@@ -2,12 +2,10 @@ package OpenPark.utils;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import OpenPark.model.CategoriaVeiculo;
 import OpenPark.model.Entrada;
 import OpenPark.model.Veiculo;
-import OpenPark.repository.CategoriaRepository;
+
 
 public class EntradaUtils {	
 
@@ -21,7 +19,9 @@ public class EntradaUtils {
 		for (CategoriaVeiculo categoria : categorias) {
 			if (categoria.getCategoria().equals(categoriaVeiculo)) {
 				Float valorMinutos = categoria.getValorHora() / 60;
-				preco = valorMinutos * tempoEstadia;
+				
+				preco = categoria.getValorBase() + (valorMinutos * tempoEstadia);			
+				
 				break;
 			}
 		}

@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import OpenPark.repository.CategoriaRepository;
-import OpenPark.utils.EntradaUtils;
+import OpenPark.utils.EstacionamentoUtils;
 
 @Entity
 public class Entrada {

@@ -7,7 +7,7 @@ import OpenPark.model.Entrada;
 import OpenPark.model.Veiculo;
 
 
-public class EntradaUtils {	
+public class EstacionamentoUtils {	
 
 	public static Float calculaPreco(Entrada entrada, List<CategoriaVeiculo> categorias) {
 		Float preco = (float) 0;

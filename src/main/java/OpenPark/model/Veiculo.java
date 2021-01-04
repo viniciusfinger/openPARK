@@ -1,14 +1,10 @@
 package OpenPark.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Veiculo {
@@ -19,6 +15,8 @@ public class Veiculo {
     private String marca;
 
     private String cor;
+    
+    private String categoria;
     
     private String modelo;
 
@@ -63,5 +61,13 @@ public class Veiculo {
 
 	public void setCor(String cor) {
 		this.cor = cor;
-	}  
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}  	
 }

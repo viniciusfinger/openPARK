@@ -16,6 +16,13 @@
 				<div class="card-body">
 					<form th:object="${veiculoDTO}" class="card-body" action="/estacionamento/entrada" method="POST">
                    		<div class="form-group">
+                    		<label for="categoria">Categoria</label>
+                    		<select th:field="*{categoria}"  th:errorclass="is-invalid" class="form-control">
+    							<option th:each="categoria : ${categorias}"th:value="${categoria.categoria}" th:text="${categoria.categoria}"></option>
+							</select>
+							<div class="invalid-feedback" th:errors="*{categoria}"></div>
+                    	</div>             		
+                   		<div class="form-group">
                        		<label for="modelo">Modelo</label>
                         	<input th:field="*{modelo}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Ex: Corsa"/>
                         	<small>Informe qual o modelo do veiculo.</small>

@@ -7,6 +7,9 @@ import OpenPark.model.Veiculo;
 public class VeiculoDTO {
 	
 	@NotBlank
+	public String categoria;
+	
+	@NotBlank
 	public String modelo;
 	
 	@NotBlank
@@ -24,6 +27,7 @@ public class VeiculoDTO {
 		veiculo.setModelo(modelo.toUpperCase());
 		veiculo.setMarca(marca);
 		veiculo.setPlaca(placa);
+		veiculo.setCategoria(categoria);
 		
 		return veiculo;
 	}
@@ -58,5 +62,13 @@ public class VeiculoDTO {
 
 	public void setPlaca(String placa) {
 		this.placa = placa;
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
  }

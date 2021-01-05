@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:replace="~{base :: head}"></head>
+
+    <body>
+    	<div class="logo-container mb-3 p-3 d-flex justify-content-between">
+    		<div>
+        		<span class="logo">Open</span><span class="logo logo-bold">Park</span>
+    		</div>
+    		<div>
+    			<a href="/"><button class="btn btn-light mt-3">Home</button></a>
+    			<a href="/painel/historico"><button class="btn btn-light mt-3">Historico</button></a>
+    			<a href="/"><button class="btn btn-light mt-3 text-danger">Admin</button></a>	
+    		</div>
+		</div>
+        <div class="container">
+            <div class="card mb-3">
+                <div class="card-header alert-danger col-12">
+                	<div class="row p-3 d-flex col-12">
+                		<div class="col-10 col-lg-11" >
+                			<span class="font-weight-bold">Saida de Veiculo</span>
+                		</div>
+                		<div class="col-1">
+                			<a href="/painel"><button type="button" class="btn btn-success">Painel</button></a>
+                		</div>	
+                	</div>
+                </div>
+                <div class="card-body">
+                    <div class="col-15 mb-3">
+                    	<div class="row mb-1">
+                            <div class="col-3 font-weight-bold">Modelo:</div>
+                            <div class="col-3 font-weight-bold">Placa: </div>
+                            <div class="col-3 font-weight-bold">Preco:</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-3"><span th:text="${entrada.veiculo.marca} + ' ' + ${entrada.veiculo.modelo} + ' ' + ${entrada.veiculo.cor}">Corsa Bordo</span></div>
+                            <div class="col-3"><span th:text="${entrada.veiculo.placa}">IHF-2551</span></div>
+                            <div class="col-3"><span th:text="'R$'+${#numbers.formatDecimal(entrada.preco, 0, 'COMMA', 2, 'POINT')}">5.90</span></div>
+                        </div>
+                        <div class="row mb-1">
+                         	<div class="col-3 font-weight-bold">Hora de entrada:</div>
+                            <div class="col-3 font-weight-bold">Hora de saida:</div>
+                        </div>	
+                        <div class="row mb-3">
+                        	<div class="col-3"><span th:text="${#dates.format(entrada.horaEntrada, 'dd/MM/yyyy HH:mm')}">12:54</span></div>
+                            <div class="col-3"><span th:text="${#dates.format(entrada.horaSaida, 'dd/MM/yyyy HH:mm')}">12:54</span></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

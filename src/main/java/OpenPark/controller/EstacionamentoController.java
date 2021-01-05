@@ -39,7 +39,7 @@ public class EstacionamentoController {
 	    }
 	
 	@GetMapping("/saida/{idEntrada}")
-	public String saida(@PathVariable Long idEntrada) {
+	public ModelAndView saida(@PathVariable Long idEntrada) {
 		return estacionamentoService.saida(idEntrada);
 	}
 }

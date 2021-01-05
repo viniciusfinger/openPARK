@@ -57,20 +57,25 @@ public class EstacionamentoService {
     	return mv;
 	}
 	
-	public String saida(Long idEntrada) {
+	public ModelAndView saida(Long idEntrada) {
+		ModelAndView mv = new ModelAndView("painel/saida");
 		List<CategoriaVeiculo> categorias = categoriaRepository.findAll();
 		
 		Optional<Entrada> entradaOPT = entradaRepository.findById(idEntrada);
 		Entrada entrada = entradaOPT.get();
 		
-		entrada.finaliza();
+		if (entrada.getHoraSaida() == null) {
+			entrada.finaliza();
+			
+			Float preco = EstacionamentoUtils.calculaPreco(entrada, categorias);
+			
+			entrada.setPreco(preco);
+			
+			entradaRepository.save(entrada);
+		}
+				
+		mv.addObject("entrada", entrada);
 		
-		Float preco = EstacionamentoUtils.calculaPreco(entrada, categorias);
-		
-		entrada.setPreco(preco);
-		
-		entradaRepository.save(entrada);
-		
-		return "redirect:/painel";
+		return mv;
 	}
 }

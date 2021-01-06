@@ -2,7 +2,7 @@
 Sistema open source para gestão de estacionamentos.
 
 ## Features 🚀
-
+-
 ## Tecnologias 🛠
 - Thymeleaf 
 - Bootstrap

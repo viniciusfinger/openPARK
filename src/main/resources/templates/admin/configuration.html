@@ -19,11 +19,11 @@
 				<div class="card-body col-12">
 					<div class="row mb-3">
 						<div class="col-4 font-weight-bold">Capacidade maxima do estacionamento:</div>
-						<div><input th:value="${configuracoes.lotacaoEstacionamento}"></div>
+						<div><input class="input-form" th:value="${configuracoes.lotacaoEstacionamento}"></div>
 					</div>
 					<div class="row">
 						<div class="col-4 font-weight-bold">Teste:</div>
-						<div><input value="25"></div>
+						<div><input class="input-form" value="25"></div>
 					</div>					
 				</div>
 				<div class="card-footer">
@@ -36,13 +36,15 @@
 					<span>Configuracoes de valores (em R$)</span>
 				</div>
 				<div class="card-body col-12">
-					<div class="row mb-3">
-						<div class="col-4 font-weight-bold">Capacidade maxima do estacionamento:</div>
-						<div><input th:value="${configuracoes.lotacaoEstacionamento}"></div>
+					<div class="row mb-2 font-weight-bold" >
+						<span class="col-2">Categoria</span>
+						<span class="col-2">Valor da Hora</span>
+						<span class="col-2 ml-3 ">Valor de base</span>
 					</div>
-					<div class="row">
-						<div class="col-4 font-weight-bold">Teste:</div>
-						<div><input value="25"></div>
+					<div class="row mb-3" th:each="categoria : ${categorias}">
+						<div class="col-2"> <span th:text="${categoria.categoria}+':'"></span> </div>
+						<div class="ml-4 col-2"> <input class="input-form" th:value="${categoria.valorHora}"></div>
+						<div class="ml-3 col-2"><input class="input-form " th:value="${categoria.valorBase}"></div>
 					</div>					
 				</div>
 				<div class="card-footer">

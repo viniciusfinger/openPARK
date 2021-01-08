@@ -11,10 +11,42 @@
     		</div>
 		</div>
 		<div class="container">
-			<div class="card mb-3 font-weight-bold">
-				<div class="card-header alert-warning">Configuracoes Gerais do Estacionamento</div>
-				<div class="card-body">
-					
+		
+			<div class="card mb-3">
+				<div class="card-header alert-warning font-weight-bold">
+					<span>Configuracoes Gerais do Estacionamento</span>
+				</div>
+				<div class="card-body col-12">
+					<div class="row mb-3">
+						<div class="col-4 font-weight-bold">Capacidade maxima do estacionamento:</div>
+						<div><input th:value="${configuracoes.lotacaoEstacionamento}"></div>
+					</div>
+					<div class="row">
+						<div class="col-4 font-weight-bold">Teste:</div>
+						<div><input value="25"></div>
+					</div>					
+				</div>
+				<div class="card-footer">
+					<button type="submit" class="btn btn-success">Salvar</button>
+				</div>
+			</div>
+			
+				<div class="card mb-3">
+				<div class="card-header alert-warning font-weight-bold">
+					<span>Configuracoes de valores (em R$)</span>
+				</div>
+				<div class="card-body col-12">
+					<div class="row mb-3">
+						<div class="col-4 font-weight-bold">Capacidade maxima do estacionamento:</div>
+						<div><input th:value="${configuracoes.lotacaoEstacionamento}"></div>
+					</div>
+					<div class="row">
+						<div class="col-4 font-weight-bold">Teste:</div>
+						<div><input value="25"></div>
+					</div>					
+				</div>
+				<div class="card-footer">
+					<button type="submit" class="btn btn-success">Salvar</button>
 				</div>
 			</div>
 		</div>	
